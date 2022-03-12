@@ -1,11 +1,11 @@
-import { defineComponent } from "vue";
+import { defineComponent, Fragment } from "vue";
 
 export default defineComponent({
   setup() {
-    return () => {
+    return () => (
       <>
         <div>Hello Vue TSX</div>
-      </>;
-    };
+      </>
+    );
   },
 });
