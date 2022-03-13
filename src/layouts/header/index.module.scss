@@ -1,0 +1,22 @@
+header {
+  background: linear-gradient(to right, rgb(230, 190, 190),rgb(109, 236, 205));
+  // position: fixed;
+  text-align: center;
+  font-family: monoco;
+  font-weight: bold;
+  width: 100vw;
+  height:15vh;
+  font-size: 18px;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media screen and (min-width:648px) {
+    font-size: large;
+  }
+  @media screen and (min-width:1024px) {
+    font-size: 2.5rem;
+  }
+}
+
+
