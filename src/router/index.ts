@@ -1,13 +1,17 @@
 import { createRouter, createWebHistory } from "vue-router";
 import App from "../App";
+import { LoadingGuard } from "./guard";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: "/",
-      redirect: "/login",
+      redirect: "loading",
       name: "main",
+      meta: {
+        name: "root",
+      },
       component: App,
     },
     {
@@ -15,6 +19,18 @@ const router = createRouter({
       name: "login",
       component: () => import("@/views/login"),
     },
+    // {
+    //   path: "/loading",
+    //   beforeEnter: (to, from, next) => {
+    //     if (from.path === "/") {
+    //       // return true;
+    //       next();
+    //     }
+    //     return false;
+    //   },
+    //   name: "loading",
+    //   component: () => import("@/views/loading"),
+    // },
   ],
 });
 

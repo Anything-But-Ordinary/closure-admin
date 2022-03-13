@@ -1,7 +1,7 @@
 import { NCard, NForm, NFormItem, NInput, type FormInst } from "naive-ui";
 import { defineComponent, ref } from "vue";
-import styles from "./index.module.scss";
 import { LoginHeader } from "../../layouts/header";
+import styles from "./index.module.scss";
 
 export default defineComponent({
   setup() {

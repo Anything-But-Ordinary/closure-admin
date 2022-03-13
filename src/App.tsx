@@ -6,7 +6,6 @@ import {
   NMessageProvider,
   NNotificationProvider,
   NDialogProvider,
-  darkTheme,
 } from "naive-ui";
 // import TopBar from "./components/topbar";
 import { isDark } from "./composables";
