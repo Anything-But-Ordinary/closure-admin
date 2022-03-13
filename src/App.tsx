@@ -1,10 +1,12 @@
 import { defineComponent } from "vue";
+import { RouterView } from "vue-router";
 
 export default defineComponent({
   setup() {
     return () => (
       <>
-        <div>Hello Vue TSX</div>
+        <div class="text-center">Hello Vue TSX</div>
+        <RouterView />
       </>
     );
   },

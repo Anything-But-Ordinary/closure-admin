@@ -6,8 +6,14 @@ const router = createRouter({
   routes: [
     {
       path: "/",
+      redirect: "/login",
       name: "main",
       component: App,
+    },
+    {
+      path: "/login",
+      name: "login",
+      component: () => import("@/views/login"),
     },
   ],
 });
