@@ -1,6 +1,12 @@
 import { defineComponent, ref } from "vue";
 import styles from "./index.module.scss";
-import { NForm, NFormItem, NInput, type FormInst } from "naive-ui";
+import {
+  NForm,
+  NFormItem,
+  NInput,
+  type FormInst,
+  NLayoutContent,
+} from "naive-ui";
 
 export default defineComponent({
   setup() {
@@ -8,7 +14,7 @@ export default defineComponent({
 
     return () => (
       <>
-        <div class="">
+        <div>
           <NForm ref={formRef}>
             <NFormItem>
               <NInput />
