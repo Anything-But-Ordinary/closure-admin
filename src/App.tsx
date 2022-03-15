@@ -8,6 +8,7 @@ import {
   NDialogProvider,
 } from "naive-ui";
 // import TopBar from "./components/topbar";
+import { isDark } from "./composables";
 
 export default defineComponent({
   setup() {
