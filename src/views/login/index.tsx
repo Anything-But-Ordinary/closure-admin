@@ -7,13 +7,17 @@ import {
   NInput,
   NRow,
   NSpace,
+  NGradientText,
   type FormInst,
 } from "naive-ui";
 import { defineComponent, ref } from "vue";
 import { LoginHeader } from "../../layouts/header";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   setup() {
+    const router = useRouter();
+
     const formRef = ref<FormInst | null>(null);
 
     return () => (
@@ -32,6 +36,18 @@ export default defineComponent({
                 <NFormItem label="password">
                   <NInput />
                 </NFormItem>
+                <NSpace justify="center">
+                  <NGradientText type="info">
+                    <div
+                      class={
+                        "hover:text-orange-500 transition-all duration-1000 cursor-pointer"
+                      }
+                      onClick={() => router.push("/register")}
+                    >
+                      Not Have an account yet? Go to Register
+                    </div>
+                  </NGradientText>
+                </NSpace>
                 <NRow gutter={[0, 24]}>
                   <NCol span={24}>
                     <NSpace justify="space-between">
@@ -43,16 +59,6 @@ export default defineComponent({
                       >
                         登陆
                       </NButton>
-
-                      <NButton
-                        class={"bg-yellow-300 !hover:bg-yellow-500"}
-                        type="primary"
-                        round
-                        disabled={false}
-                      >
-                        注册
-                      </NButton>
-
                       <NButton
                         class={"bg-rose-300 !hover:bg-rose-500"}
                         type="primary"
