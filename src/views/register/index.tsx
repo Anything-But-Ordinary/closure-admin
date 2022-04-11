@@ -26,10 +26,16 @@ export default defineComponent({
               class="mt-14 text-center bg-light-800  h-3/4 font-mono rounded-md md:w-4/5 md:h-4/5 lg:w-auto lg:h-auto shadow-lg"
             >
               <NForm ref={formRef}>
+                <NFormItem label="username">
+                  <NInput />
+                </NFormItem>
                 <NFormItem label="email">
                   <NInput />
                 </NFormItem>
                 <NFormItem label="password">
+                  <NInput />
+                </NFormItem>
+                <NFormItem label="verify password">
                   <NInput />
                 </NFormItem>
                 <NRow gutter={[0, 24]}>

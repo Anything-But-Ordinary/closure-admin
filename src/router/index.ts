@@ -19,6 +19,11 @@ const router = createRouter({
       name: "login",
       component: () => import("@/views/login"),
     },
+    {
+      path: "/register",
+      name: "register",
+      component: () => import("@/views/register"),
+    },
     // {
     //   path: "/loading",
     //   beforeEnter: (to, from, next) => {
