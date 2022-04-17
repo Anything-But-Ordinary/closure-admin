@@ -144,18 +144,25 @@ export default defineComponent({
                         round
                         disabled={false}
                         onClick={async () => {
-                          await mutate({
-                            password: model.value.password,
-                            email: model.value.email,
-                          })
-                            .then((data) => {
-                              console.log(data);
-                              if (data?.errors?.length) {
-                                message.error("登录失败");
-                              }
-                              return data?.data;
+                          try {
+                            await mutate({
+                              password: model.value.password,
+                              email: model.value.email,
                             })
-                            .finally(() => {});
+                              .then((res) => {
+                                console.log(res);
+                                return res?.data;
+                              })
+                              .then((data) => {
+                                console.log(data);
+                                if (data?.login.isLogin === true) {
+                                  message.success("登录成功");
+                                }
+                                return data;
+                              });
+                          } catch (error) {
+                            message.error("登录失败");
+                          }
                         }}
                       >
                         登陆
