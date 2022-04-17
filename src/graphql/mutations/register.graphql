@@ -1,0 +1,9 @@
+mutation Register($password:String!,$password_confirm:String!,$email:String!,$username:String!){
+  register(input:{ 
+    password:$password,
+    password_confirm:$password_confirm,
+    email:$email,
+    username:$username}){
+      isRegister
+    }
+}
