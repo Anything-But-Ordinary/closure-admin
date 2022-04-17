@@ -14,9 +14,10 @@ import {
   type FormRules,
   type FormInst,
 } from "naive-ui";
-import { defineComponent, ref, type Ref } from "vue";
+import { defineComponent, ref, watch, type Ref } from "vue";
 import { LoginHeader } from "../../layouts/header";
 import { useRouter } from "vue-router";
+import { useLoginMutation } from "@/generated/graphql";
 
 export default defineComponent({
   setup() {
@@ -26,14 +27,31 @@ export default defineComponent({
     const message = useMessage();
 
     interface ModelType {
-      email: Ref<string | null>;
-      password: string | null;
+      email: string;
+      password: string;
     }
 
     const model = ref<ModelType>({
-      email: ref(null),
-      password: null,
+      email: "",
+      password: "",
     });
+
+    let { mutate, error, loading, onDone, onError } = useLoginMutation({
+      variables: {
+        password: model.value.password,
+        email: model.value.email,
+      },
+    });
+
+    watch(
+      [model],
+      () => {
+        console.log("model changed");
+      },
+      {
+        deep: true,
+      }
+    );
 
     const rules: FormRules = {
       email: [
@@ -125,6 +143,20 @@ export default defineComponent({
                         type="primary"
                         round
                         disabled={false}
+                        onClick={async () => {
+                          await mutate({
+                            password: model.value.password,
+                            email: model.value.email,
+                          })
+                            .then((data) => {
+                              console.log(data);
+                              if (data?.errors?.length) {
+                                message.error("登录失败");
+                              }
+                              return data?.data;
+                            })
+                            .finally(() => {});
+                        }}
                       >
                         登陆
                       </NButton>

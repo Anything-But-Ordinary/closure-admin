@@ -44,6 +44,7 @@
     "jsdom": "^19.0.0",
     "naive-ui": "^2.26.4",
     "prettier": "^2.5.1",
+    "react": "17",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
     "start-server-and-test": "^1.14.0",
