@@ -18,9 +18,12 @@ import { defineComponent, ref, watch, type Ref } from "vue";
 import { LoginHeader } from "../../layouts/header";
 import { useRouter } from "vue-router";
 import { useLoginMutation } from "@/generated/graphql";
+import { useAuthStore } from "@/stores/auth";
 
 export default defineComponent({
   setup() {
+    const authStore = useAuthStore();
+
     const router = useRouter();
 
     const formRef = ref<FormInst | null>(null);
@@ -157,6 +160,7 @@ export default defineComponent({
                                 console.log(data);
                                 if (data?.login.isLogin === true) {
                                   message.success("登录成功");
+                                  authStore.setTrue();
                                 }
                                 return data;
                               });
